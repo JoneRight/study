@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //第1天 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值
+
+      //1、创建5个空数组
+      let arr = new Array(5)
+      console.log(arr)
+      //2、生成一个随机数的函数（2-32）
+      function numRandom() {
+        return Math.floor(Math.random() * 31 + 2)
+      }
+      console.log(numRandom())
+      let i = 0 //这是进行叠加用的
+      //3、随机数组生成，这时候需要递归了
+      let num = numRandom()
+      function arrRandom(num, arr) {
+        //如果有的话就塞进去，没有的话num重新赋值
+        if (arr.indexOf(num) < 0) {
+          arr[i] = num
+          i++
+        } else {
+          num = numRandom()
+        }
+        //之后判断长度有没有达到数组的长度
+        if (i >= arr.length) {
+          console.log(arr)
+          return
+        } else {
+          arrRandom(num, arr)
+        }
+      }
+      arrRandom(num, arr)
+    </script>
+  </body>
+</html>

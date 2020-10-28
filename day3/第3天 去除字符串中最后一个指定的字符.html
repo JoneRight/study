@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //第3天 去除字符串中最后一个指定的字符
+      let str = 'abcdefg,defghighlmn'
+      let delStr = 'defg'
+      let index = str.lastIndexOf(delStr)
+      let str2 = str.substr(0, index) + str.substr(index + delStr.length)
+      let allIndex = str.indexOf(delStr)
+      console.log(allIndex)
+
+      //扩展，删除所有指定字符
+
+      //2通过split先生成数组，然后再连接
+      let arr = str.split(delStr)
+      console.log(arr)
+      let arr2 = ''
+      // for (let index = 0; index < arr.length; index++) {
+      //   arr2 = `${arr2}${arr[index]}`
+      // }
+      // console.log(arr2)
+
+      //可以通过forEach方法
+      arr.forEach(element => {
+        arr2 = `${arr2}${element}`
+      })
+      console.log(arr2)
+    </script>
+  </body>
+</html>
