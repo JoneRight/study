@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //第559天 使用递归实现指定最小值和最大值之间的所有整数求和
+      // 通过递归方式先小到大排序
+
+      let numArr = [190, 80, 50, 40, 30, 20, 10]
+      function sort(arr) {
+        let len = numArr.length - 1
+        for (let i = 0; i < len; i++) {
+          for (let j = 0; j < len - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+              let temp = arr[j]
+              arr[j] = arr[j + 1]
+              arr[j + 1] = temp
+            }
+          }
+        }
+        return arr
+      }
+      let newArr = sort(numArr)
+      let add = 0
+      for (let index = 1; index < newArr.length - 1; index++) {
+        add += newArr[index]
+      }
+      console.log(add)
+    </script>
+  </body>
+</html>
