@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style lang="css">
+      .outer {
+        height: 100px;
+        width: 100px;
+        background: rgba(255, 45, 45, 0.2);
+      }
+      .border {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer"></div>
+    <script>
+      let aaa = document.getElementsByClassName('outer')[0]
+      aaa.onclick = function (e) {
+        //需要阻止事件冒泡
+        e.stopPropagation()
+        aaa.setAttribute('class', 'outer border')
+      }
+      let ccc = document
+      ccc.onclick = function () {
+        aaa.setAttribute('class', 'outer')
+      }
+    </script>
+  </body>
+</html>

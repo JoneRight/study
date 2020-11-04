@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //先根据age排序，再根据num排序
+      let listData = [
+        { name: '张三', age: 38, num: 123 },
+        { name: '李四', age: 15, num: 678 },
+        { name: '李四我问问', age: 15, num: 78 },
+        { name: '李四我问问222', age: 15, num: 378 },
+        { name: '李四我问问333', age: 15, num: 778 },
+        { name: '王王', age: 16, num: 2566 },
+        { name: '老六', age: 38, num: 256 },
+        { name: '老王', age: 16, num: 789 },
+        { name: '大一', age: 23, num: 678 },
+        { name: '大一', age: 43, num: 678 },
+        { name: '大二', age: 20, num: 123 },
+        { name: '大三', age: 40, num: 989 },
+      ]
+      //根据age排个序
+      for (let i = 0; i < listData.length - 1; i++) {
+        for (let j = 0; j < listData.length - 1 - i; j++) {
+          //升序
+          if (listData[j].age > listData[j + 1].age) {
+            let temp = listData[j]
+            listData[j] = listData[j + 1]
+            listData[j + 1] = temp
+          }
+        }
+      }
+      //先生成长度为listData长度的空数组
+      let qqq = []
+      for (let k = 0; k < listData.length; k++) {
+        qqq[k] = []
+      }
+      let j = 0
+      // debugger
+      for (let i = 0; i < listData.length - 1; i++) {
+        if (listData[i].age == listData[i + 1].age) {
+          qqq[j].push(listData[i], listData[i + 1])
+        } else {
+          // 判断是否是最后一个
+          // 如果是最后一个，还不和倒数第二个相同，那么需要加入新的数组中
+          if (i == listData.length - 2) {
+            qqq[j].push(listData[i])
+            j++
+            qqq[j].push(listData[i + 1])
+          } else {
+            qqq[j].push(listData[i])
+            j++
+          }
+        }
+      }
+      //去掉空数组
+      function removeEmpty(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].length == 0) {
+            arr.splice(i, 1)
+            i--
+          }
+        }
+        return arr
+      }
+      let ppp = removeEmpty(qqq)
+      //去重
+      for (let i = 0; i < ppp.length; i++) {
+        if (ppp[i].length > 1) {
+          let temp = []
+          for (let k = 0; k < ppp[i].length; k++) {
+            //先创建一个新数组
+            if (temp.indexOf(ppp[i][k]) < 0) {
+              temp.push(ppp[i][k])
+            }
+          }
+          ppp[i] = temp
+        }
+      }
+      console.log(ppp)
+    </script>
+  </body>
+</html>

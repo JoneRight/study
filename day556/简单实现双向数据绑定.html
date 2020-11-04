@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="ipt" />
+    <script>
+      const data = {}
+      const ipt = document.getElementsByClassName('ipt')[0]
+      Object.defineProperty(data, 'text', {
+        set(value) {
+          ipt.value = value
+          this.value = value
+        },
+      })
+      ipt.onchange = function (e) {
+        console.log(data)
+        data.text = e.target.value
+        console.log(data)
+      }
+    </script>
+  </body>
+</html>
