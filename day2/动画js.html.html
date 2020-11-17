@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style lang="css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .move {
+        background: goldenrod;
+        height: 100px;
+        width: 100px;
+        top: 0px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="move"></div>
+  </body>
+  <script>
+    var scc = document.getElementsByClassName('move')[0]
+    let flag = true
+    let left = 0
+    setInterval(() => {
+      if (flag) {
+        scc.style.top = `${left++}px`
+        if (left > 100) {
+          flag = false
+        }
+      } else {
+        scc.style.top = `${left--}px`
+        if (left < 0) {
+          flag = true
+        }
+      }
+    }, 1000 / 60)
+  </script>
+</html>

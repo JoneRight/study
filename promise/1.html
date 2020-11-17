@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function wait() {
+        console.log('promise')
+      }
+      function fn(aaa) {
+        // setTimeout(() => {
+        //   console.log(3333)
+        // }, 2000)   临时挂起
+        for (let index = 0; index < 2; index++) {
+          for (let i = 0; i < 2 - index; i++) {
+            console.log(i)
+          }
+        }
+        function decular() {
+          console.log('we')
+        }
+        aaa && aaa()
+        console.log(3333333)
+      }
+      fn(wait)
+    </script>
+  </body>
+</html>

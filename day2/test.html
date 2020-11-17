@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [0, 5, 6, 8, 7]
+      //先排序
+      function num(arr) {
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let k = 0; k < arr.length - 1 - i; k++) {
+            if (arr[k] > arr[k + 1]) {
+              let temp = arr[k]
+              arr[k] = arr[k + 1]
+              arr[k + 1] = temp
+            }
+          }
+        }
+        return arr
+      }
+      //判断几个0，如果只有一个0的话那就是等差为1的数列
+      function rever(arr) {
+        let num = 0 //等差数
+        for (let i = 0; i < arr.length - 1; i++) {
+          //先统计0的个数
+          if (arr[i] !== 0) {
+            num += arr[i + 1] - arr[i]
+          }
+        }
+        console.log(num)
+        if (num <= 4) {
+          return true
+        } else {
+          return false
+        }
+      }
+      let cc = num(arr)
+      console.log(cc)
+      console.log(rever(cc))
+    </script>
+  </body>
+</html>

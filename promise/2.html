@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function wait() {
+        console.log('处理wait的代码')
+      }
+      function fn(wait) {
+        console.log('处理fn自己的逻辑')
+        wait &&
+          setTimeout(() => {
+            wait()
+          }, 0)
+        console.log('后面一打自己的代码')
+      }
+      fn(wait)
+      //处理fn自己的逻辑
+      // 19 后面一打自己的代码
+      // 11 处理wait的代码
+    </script>
+  </body>
+</html>

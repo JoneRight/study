@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 600px">3434</div>
+    <div style="height: 20000px">
+      <iframe id="frame" style="width: 100vw" src="https://www.cosmoplat.com/solution/micro/app/?solutionId=333" frameborder="0"></iframe>
+    </div>
+
+    <script>
+      console.log(top.scrollTop)
+      let frame = document.getElementById('frame')
+      frame.style.height = '20000px'
+      setTimeout(() => {
+        console.log(frame.scrollHeight)
+      }, 2000)
+      // console.log(frame.style.height)
+    </script>
+  </body>
+</html>
